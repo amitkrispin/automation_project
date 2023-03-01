@@ -32,6 +32,9 @@ class Advantge_page:
     def headphones_category(self):
         self.wait.until(EC.visibility_of_element_located((By.ID, "headphonesImg")))
         return self.driver.find_element(By.ID, "headphonesImg")
-    def home_page(self):
-        self.wait.until(EC.visibility_of_element_located((By.ID, By.ID,"Layer_1")))
-        return self.driver.find_element(By.ID,"Layer_1")
+
+    def move_to_special_offer(self) :
+        sp_offer = self.wait.until(EC.visibility_of_element_located((By.ID, "see_offer_btn")))
+        actions = ActionChains(self.driver)
+        actions.move_to_element(sp_offer).perform()
+        return sp_offer
